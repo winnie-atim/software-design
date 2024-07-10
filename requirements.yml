@@ -160,3 +160,13 @@ Sprint_06:
 
   # Requirements:
     - 
+
+Hints:
+  - Scenario-Oriented Principles:
+    - Single Responsbility Principle
+    - Open-Closed Principle
+    - Lisikov Substitution Principle
+
+  - Solution-Oriented Principles:
+    - Interface Segregation Principle
+    - Dependancy Inversion Principle
