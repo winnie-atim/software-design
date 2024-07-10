@@ -1,0 +1,6 @@
+SOLID:
+  Single Responsbility Principle (SRP):
+    - It states that a class should have 
+      one reason (responsbility)
+      to change (refactoring)
+  

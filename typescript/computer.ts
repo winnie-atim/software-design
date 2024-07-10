@@ -1,51 +1,66 @@
-// Computer class
-class Computer{
-    name : string;
-
-    constructor(name : string){
-        this.name = name;
-    }
-
-    inputDataFromKeyBoard(){
+class KeyBoard{
+    input(){
         console.log("Inputing data from a keyboard...");
     }
+}
 
-    storeDataToInternalMemory(){
-        console.log("Storing data in internal memory...");
+
+class Mouse{
+    input(){
+        console.log("Inputing data using Mouse...");
+    }
+}
+
+
+
+class Computer{
+    name : string;
+    keyboard:KeyBoard = new KeyBoard();
+    mouse:Mouse = new Mouse();
+
+    input(){
+        this.keyboard.input();
+        this.mouse.input();
     }
 
-    retrieveDataFromInternalMemory(){
-        console.log("Retrieving data from internal memory ...");
-    }
+    // storeDataToInternalMemory(){
+    //     console.log("Storing data in internal memory...");
+    // }
 
-    processDataUsingCpu(){
-        console.log("Processing data using CPU...");
-    }
+    // retrieveDataFromInternalMemory(){
+    //     console.log("Retrieving data from internal memory ...");
+    // }
+
+    // processDataUsingCpu(){
+    //     console.log("Processing data using CPU...");
+    // }
     
 
-    outputDataOnBuiltinScreen(){
-        console.log("Outputting data on the built-in screen...");
+    // outputDataOnBuiltinScreen(){
+    //     console.log("Outputting data on the built-in screen...");
     
-    }
+    // }
     
-    connectToWiFi(){
-        console.log("Connection to WiFi...");
-    }
+    // connectToWiFi(){
+    //     console.log("Connection to WiFi...");
+    // }
 
-    connectToBluetooth(){
-        console.log("Connection to Bluetooth...");
-    }
+    // connectToBluetooth(){
+    //     console.log("Connection to Bluetooth...");
+    // }
     
 }
 
+
+
 // Computer Object
-let computer = new Computer("MyComputer");
+let computer = new Computer();
 
 // Testing computer functionality
-computer.inputDataFromKeyBoard();
-computer.storeDataToInternalMemory();
-computer.retrieveDataFromInternalMemory();
-computer.processDataUsingCpu();
-computer.outputDataOnBuiltinScreen();
-computer.connectToWiFi();
-computer.connectToBluetooth();
+computer.input();
+// computer.storeDataToInternalMemory();
+// computer.retrieveDataFromInternalMemory();
+// computer.processDataUsingCpu();
+// computer.outputDataOnBuiltinScreen();
+// computer.connectToWiFi();
+// computer.connectToBluetooth();

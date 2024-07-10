@@ -40,11 +40,3 @@ computer.connect_to_WiFi()
 computer.connect_to_bluetooth()
 
 
-
-
-
-
-
-
-
-
