@@ -1,27 +1,50 @@
-class KeyBoard{
+class KeyBoard implements InputDevice{
     input(){
         console.log("Inputing data from a keyboard...");
     }
 }
 
-
-class Mouse{
+class Mouse implements InputDevice{
     input(){
         console.log("Inputing data using Mouse...");
     }
 }
 
+interface InputDevice{
+    input(): void;
+}
 
 
 class Computer{
-    name : string;
-    keyboard:KeyBoard = new KeyBoard();
-    mouse:Mouse = new Mouse();
+    name : string = "";
+    // keyboard:KeyBoard = new KeyBoard();
+    // mouse:Mouse = new Mouse();
+
+// Option 1 #####################################################
+    inputDevice:InputDevice;
+
+    constructor(inputDevice:InputDevice) {
+        this.inputDevice = inputDevice;  
+    }
 
     input(){
-        this.keyboard.input();
-        this.mouse.input();
+        this.inputDevice.input();
     }
+// OPTION 2 ################################################
+    // inputDevices:InputDevice[];
+
+    // constructor(inputDevices:InputDevice[]) {
+    //     this.inputDevices = inputDevices;  
+    // }
+
+    // input(){
+    //     this.inputDevices.forEach(device => device.input());
+    // }
+// #########################################################
+    // input(){
+    //     this.keyboard.input();
+    //     this.mouse.input();
+    // }
 
     // storeDataToInternalMemory(){
     //     console.log("Storing data in internal memory...");
@@ -51,10 +74,12 @@ class Computer{
     
 }
 
-
-
-// Computer Object
-let computer = new Computer();
+// New keyboard & Mouse
+let keyboard = new KeyBoard();
+let mouse = new Mouse();
+// Computer Object(s)
+let computer = new Computer(keyboard); //Option 1
+// let computer = new Computer([keyboard, mouse]);  //Option 2
 
 // Testing computer functionality
 computer.input();
