@@ -1,3 +1,8 @@
+// Input Components
+interface InputDevice{
+    input(): void;
+}
+
 class KeyBoard implements InputDevice{
     input(){
         console.log("Inputing data from a keyboard...");
@@ -10,18 +15,12 @@ class Mouse implements InputDevice{
     }
 }
 
-interface InputDevice{
-    input(): void;
-}
 
 
 class Computer{
     name : string = "";
-    // keyboard:KeyBoard = new KeyBoard();
-    // mouse:Mouse = new Mouse();
 
-// Option 1 #####################################################
-    inputDevice:InputDevice;
+    private inputDevice:InputDevice;
 
     constructor(inputDevice:InputDevice) {
         this.inputDevice = inputDevice;  
@@ -30,21 +29,21 @@ class Computer{
     input(){
         this.inputDevice.input();
     }
-// OPTION 2 ################################################
-    // inputDevices:InputDevice[];
 
-    // constructor(inputDevices:InputDevice[]) {
-    //     this.inputDevices = inputDevices;  
-    // }
 
-    // input(){
-    //     this.inputDevices.forEach(device => device.input());
-    // }
-// #########################################################
-    // input(){
-    //     this.keyboard.input();
-    //     this.mouse.input();
-    // }
+}
+
+
+let keyboard = new KeyBoard();
+let mouse = new Mouse();
+let computer = new Computer(keyboard);
+computer.input();
+
+
+
+
+
+
 
     // storeDataToInternalMemory(){
     //     console.log("Storing data in internal memory...");
@@ -72,20 +71,3 @@ class Computer{
     //     console.log("Connection to Bluetooth...");
     // }
     
-}
-
-// New keyboard & Mouse
-let keyboard = new KeyBoard();
-let mouse = new Mouse();
-// Computer Object(s)
-let computer = new Computer(keyboard); //Option 1
-// let computer = new Computer([keyboard, mouse]);  //Option 2
-
-// Testing computer functionality
-computer.input();
-// computer.storeDataToInternalMemory();
-// computer.retrieveDataFromInternalMemory();
-// computer.processDataUsingCpu();
-// computer.outputDataOnBuiltinScreen();
-// computer.connectToWiFi();
-// computer.connectToBluetooth();
