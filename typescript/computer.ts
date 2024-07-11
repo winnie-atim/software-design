@@ -1,11 +1,15 @@
-class KeyBoard{
+// Input Components
+interface InputDevice{
+    input(): void;
+}
+
+class KeyBoard implements InputDevice{
     input(){
         console.log("Inputing data from a keyboard...");
     }
 }
 
-
-class Mouse{
+class Mouse implements InputDevice{
     input(){
         console.log("Inputing data using Mouse...");
     }
@@ -14,14 +18,32 @@ class Mouse{
 
 
 class Computer{
-    name : string;
-    keyboard:KeyBoard = new KeyBoard();
-    mouse:Mouse = new Mouse();
+    name : string = "";
+
+    private inputDevice:InputDevice;
+
+    constructor(inputDevice:InputDevice) {
+        this.inputDevice = inputDevice;  
+    }
 
     input(){
-        this.keyboard.input();
-        this.mouse.input();
+        this.inputDevice.input();
     }
+
+
+}
+
+
+let keyboard = new KeyBoard();
+let mouse = new Mouse();
+let computer = new Computer(keyboard);
+computer.input();
+
+
+
+
+
+
 
     // storeDataToInternalMemory(){
     //     console.log("Storing data in internal memory...");
@@ -49,18 +71,3 @@ class Computer{
     //     console.log("Connection to Bluetooth...");
     // }
     
-}
-
-
-
-// Computer Object
-let computer = new Computer();
-
-// Testing computer functionality
-computer.input();
-// computer.storeDataToInternalMemory();
-// computer.retrieveDataFromInternalMemory();
-// computer.processDataUsingCpu();
-// computer.outputDataOnBuiltinScreen();
-// computer.connectToWiFi();
-// computer.connectToBluetooth();
