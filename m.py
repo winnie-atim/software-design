@@ -1,34 +1,56 @@
+from typing import Protocol
+
+class InputDevice(Protocol):
+    def input(self):
+        pass
+
+class KeyBoard:
+
+    def input(self):
+        print("Inputting data from a keyboard...")
+
+
+class Mouse:
+
+    def input(self):
+        print("Inputting data from a mouse...")
+
+
 class Computer:
-    name: str
+    def __init__(self):
+        self.name: str
+        self.__input_device = InputDevice()
 
-    def input_data_from_keyboard(self):
-        print("inputting data from keyboard...")
+    
 
-    def store_data_to_internal_memory(self):
-        print("storing data to internal memory...")
+    
 
-    def retrieve_data_to_internal_memory(self):
-        print("Retrieving data to internal memory...")
+computer: Computer = Computer()
 
-    def process_data_using_cpu(self):
-        print("Processing data using CPU")
-
-    def output_data_on_builtin_screen(self):
-        print("Outputting data on builtin screen")
-
-    def connect_to_wifi(self):
-        print("Connecting to wifi...")
-
-    def connect_to_bluetooth(self):
-        print("Connecting to bluetooth...")
+computer.input_device
+# computer.input_data_from_keyboard()
+# computer.store_data_to_internal_memory()
+# computer.retrieve_data_to_internal_memory()
+# computer.process_data_using_cpu()
+# computer.output_data_on_builtin_screen()
+# computer.connect_to_wifi()
+# computer.connect_to_bluetooth()
 
 
-computer:Computer = Computer()
+# def store_data_to_internal_memory(self):
+    #     print("storing data to internal memory...")
 
-computer.input_data_from_keyboard()
-computer.store_data_to_internal_memory()
-computer.retrieve_data_to_internal_memory()
-computer.process_data_using_cpu()
-computer.output_data_on_builtin_screen()
-computer.connect_to_wifi()
-computer.connect_to_bluetooth()
+    # def retrieve_data_to_internal_memory(self):
+    #     print("Retrieving data to internal memory...")
+
+    # def process_data_using_cpu(self):
+    #     print("Processing data using CPU")
+
+    # def output_data_on_builtin_screen(self):
+    #     print("Outputting data on builtin screen")
+
+    # def connect_to_wifi(self):
+    #     print("Connecting to wifi...")
+
+    # def connect_to_bluetooth(self):
+    #     print("Connecting to bluetooth...")
