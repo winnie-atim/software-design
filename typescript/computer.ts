@@ -1,70 +1,89 @@
-from abc import ABC, abstractmethod
+// Input Components
+interface InputDevice{
+    input(): void;
+}
 
-class InputDevice(ABC):
+class KeyBoard implements InputDevice{
+    input(){
+        console.log("Inputing data from a keyboard...");
+    }
+}
 
-    @abstractmethod
-    def input(self):
-        pass
-
-class KeyBoard(InputDevice):
-
-    def input(self):
-        print("Inputting data from a keyboard...")
-
-
-class Mouse(InputDevice):
-
-    def input(self):
-        print("Inputting data from a mouse...")
+class Mouse implements InputDevice{
+    input(){
+        console.log("Inputing data using Mouse...");
+    }
+}
 
 
-class Computer:
-    name: str =""
-    # __input_device:InputDevice
+class Computer{
+    name : string = "";
+
+    private inputDevice:InputDevice;
+
+    constructor(inputDevice:InputDevice) {
+        this.inputDevice = inputDevice;  
+    }
+
+    input(){
+        this.inputDevice.input();
+    }
+
+    setInputDevice(inputDevice:InputDevice){
+        this.inputDevice = inputDevice;  
+    }
+
+    getInputDevice(){
+        return this.inputDevice;
+    }
+
+
+}
+
+class Desktop extends Computer{
+    behaveLikeAdesktop(){}
+}
+
+class Laptop extends Computer{
+    saveBattery(){}
+}
+
+let keyboard = new KeyBoard();
+let mouse = new Mouse();
+
+
+let computer = new Computer(keyboard);
+computer.input();
+computer.setInputDevice(mouse)
+computer.input();
+computer.setInputDevice(keyboard)
+computer.input();
+
+
+
+    // storeDataToInternalMemory(){
+    //     console.log("Storing data in internal memory...");
+    // }
+
+    // retrieveDataFromInternalMemory(){
+    //     console.log("Retrieving data from internal memory ...");
+    // }
+
+    // processDataUsingCpu(){
+    //     console.log("Processing data using CPU...");
+    // }
     
-    def __init__(self, input_device:InputDevice):
-        self.name: str
-        self.__input_device = input_device
+
+    // outputDataOnBuiltinScreen(){
+    //     console.log("Outputting data on the built-in screen...");
     
-    def input(self):
-        self.__input_device.input()
-
+    // }
     
+    // connectToWiFi(){
+    //     console.log("Connection to WiFi...");
+    // }
 
+    // connectToBluetooth(){
+    //     console.log("Connection to Bluetooth...");
+    // }
     
-
-keyboard = KeyBoard()
-mouse = Mouse()
-computer_using_keyboard = Computer(keyboard).input()
-print("============================================================")
-computer_using_mouse = Computer(mouse).input()
-
-# computer: Computer = Computer()
-
-# computer.input_device
-# computer.input_data_from_keyboard()
-# computer.store_data_to_internal_memory()
-# computer.retrieve_data_to_internal_memory()
-# computer.process_data_using_cpu()
-# computer.output_data_on_builtin_screen()
-# computer.connect_to_wifi()
-# computer.connect_to_bluetooth()
-
-
-# def store_data_to_internal_memory(self):
-    #     print("storing data to internal memory...")
-
-    # def retrieve_data_to_internal_memory(self):
-    #     print("Retrieving data to internal memory...")
-
-    # def process_data_using_cpu(self):
-    #     print("Processing data using CPU")
-
-    # def output_data_on_builtin_screen(self):
-    #     print("Outputting data on builtin screen")
-
-    # def connect_to_wifi(self):
-    #     print("Connecting to wifi...")
-
-    # def connect_to_bluetooth(self):
-    #     print("Connecting to bluetooth...")
