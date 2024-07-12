@@ -4,3 +4,15 @@ SOLID:
       one reason (responsbility)
       to change (refactoring)
   
+  Dependency Inversion Principle (DIP):
+    - [High level modules] should not depend on [Low level modules],
+      instead they should both depend on [Abstraction]
+
+    - Program to an [interface] not an [implementation]
+
+    - [High level modules]
+    - [Low level modules]
+
+    - [Abstraction]
+    - [Interface]
+    - [Implementation]

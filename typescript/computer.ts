@@ -16,7 +16,6 @@ class Mouse implements InputDevice{
 }
 
 
-
 class Computer{
     name : string = "";
 
