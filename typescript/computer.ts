@@ -16,7 +16,6 @@ class Mouse implements InputDevice{
 }
 
 
-
 class Computer{
     name : string = "";
 
@@ -30,18 +29,35 @@ class Computer{
         this.inputDevice.input();
     }
 
+    setInputDevice(inputDevice:InputDevice){
+        this.inputDevice = inputDevice;  
+    }
+
+    getInputDevice(){
+        return this.inputDevice;
+    }
+
 
 }
 
+class Desktop extends Computer{
+    behaveLikeAdesktop(){}
+}
+
+class Laptop extends Computer{
+    saveBattery(){}
+}
 
 let keyboard = new KeyBoard();
 let mouse = new Mouse();
+
+
 let computer = new Computer(keyboard);
 computer.input();
-
-
-
-
+computer.setInputDevice(mouse)
+computer.input();
+computer.setInputDevice(keyboard)
+computer.input();
 
 
 

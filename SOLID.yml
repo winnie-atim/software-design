@@ -4,3 +4,30 @@ SOLID:
       one reason (responsbility)
       to change (refactoring)
   
+  Dependency Inversion Principle (DIP):
+    - [High level modules] should not depend on [Low level modules],
+      instead they should both depend on [Abstraction]
+
+    - Program to an [interface] not an [implementation]
+
+    - [High level modules]
+    - [Low level modules]
+
+    - [Abstraction]
+    - [Interface]
+    - [Implementation]
+
+  Open Closed Principle (OCP):
+    - A [class/module] should be [closed for modification] but [open for extension].
+
+    - [class/module]
+    - [closed for modification]
+    - [open for extension]
+
+  Liskov Substitution Principle (LSP):
+    - every subclass or derived class should be substitutable for their base or parent class
+      Without affecting the program.
+
+  Interfaces Segregation Principle (ISP):
+    - A Class / Module should not be forced to implement / inherit/ depend on behaviors 
+      it doesn't need.
