@@ -161,12 +161,14 @@ Sprint_06:
   # Requirements:
     - 
 
-Hints:
-  - Scenario-Oriented Principles:
-    - Single Responsbility Principle
-    - Open-Closed Principle
-    - Lisikov Substitution Principle
+Sprint_07:
+  # Sprint Goal: Implementing the Observer Design Pattern
 
-  - Solution-Oriented Principles:
-    - Interface Segregation Principle
-    - Dependancy Inversion Principle
+  # The Problem:
+    # No notification feature.
+
+  # Proposal:
+    # Implementation of the notification feature.
+
+  # Requirements:
+    - 
