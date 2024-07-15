@@ -1,70 +1,164 @@
 from abc import ABC, abstractmethod
 
+# Define interfaces
 class InputDevice(ABC):
-
     @abstractmethod
-    def input(self):
+    def input(self) -> str:
         pass
 
-class KeyBoard(InputDevice):
+class StorageDevice(ABC):
+    @abstractmethod
+    def store(self) -> str:
+        pass
 
-    def input(self):
-        print("Inputting data from a keyboard...")
+    @abstractmethod
+    def retrieve(self) -> str:
+        pass
 
+class ProcessingDevice(ABC):
+    @abstractmethod
+    def process(self) -> str:
+        pass
+
+class OutputDevice(ABC):
+    @abstractmethod
+    def output(self) -> str:
+        pass
+
+# Define classes implementing interfaces
+class Keyboard(InputDevice):
+    def input(self) -> str:
+        return "Keyboard input"
 
 class Mouse(InputDevice):
+    def input(self) -> str:
+        return "Mouse input"
 
-    def input(self):
-        print("Inputting data from a mouse...")
+class SSD(StorageDevice):
+    def store(self) -> str:
+        return "SSD storing data"
+    
+    def retrieve(self) -> str:
+        return "SSD retrieving data"
 
+class HDD(StorageDevice):
+    def store(self) -> str:
+        return "HDD storing data"
+    
+    def retrieve(self) -> str:
+        return "HDD retrieving data"
 
+class CPU(ProcessingDevice):
+    def process(self) -> str:
+        return "CPU processing data"
+
+class GPU(ProcessingDevice):
+    def process(self) -> str:
+        return "GPU processing data"
+
+class Monitor(OutputDevice):
+    def output(self) -> str:
+        return "Monitor output"
+
+class Printer(OutputDevice):
+    def output(self) -> str:
+        return "Printer output"
+
+# WiFi & Bluetooth classes
+class WiFi:
+    def connect(self) -> str:
+        return "WiFi connected"
+    
+    def disconnect(self) -> str:
+        return "WiFi disconnected"
+
+class Bluetooth:
+    def connect(self) -> str:
+        return "Bluetooth connected"
+    
+    def disconnect(self) -> str:
+        return "Bluetooth disconnected"
+
+# Define Computer class
 class Computer:
-    name: str =""
-    # __input_device:InputDevice
-    
-    def __init__(self, input_device:InputDevice):
-        self.name: str
-        self.__input_device = input_device
-    
-    def input(self):
-        self.__input_device.input()
+    def __init__(
+        self,
+        input_device: InputDevice,
+        storage_device: StorageDevice,
+        processing_device: ProcessingDevice,
+        output_device: OutputDevice,
+        wifi: WiFi = None,
+        bluetooth: Bluetooth = None
+    ):
+        self._input_device = input_device
+        self._storage_device = storage_device
+        self._processing_device = processing_device
+        self._output_device = output_device
+        self._wifi = wifi
+        self._bluetooth = bluetooth
 
-    
+    def set_input_device(self, device: InputDevice) -> None:
+        self._input_device = device
 
-    
+    def set_storage_device(self, device: StorageDevice) -> None:
+        self._storage_device = device
 
-keyboard = KeyBoard()
+    def set_processing_device(self, device: ProcessingDevice) -> None:
+        self._processing_device = device
+
+    def set_output_device(self, device: OutputDevice) -> None:
+        self._output_device = device
+
+    def set_wifi(self, wifi: WiFi) -> None:
+        self._wifi = wifi
+
+    def set_bluetooth(self, bt: Bluetooth) -> None:
+        self._bluetooth = bt
+
+    def perform_input(self) -> str:
+        return self._input_device.input()
+
+    def perform_storage(self) -> str:
+        return f"{self._storage_device.store()} and {self._storage_device.retrieve()}"
+
+    def perform_processing(self) -> str:
+        return self._processing_device.process()
+
+    def perform_output(self) -> str:
+        return self._output_device.output()
+
+    def connect_wifi(self) -> str:
+        if self._wifi:
+            return self._wifi.connect()
+        return "No WiFi support"
+
+    def connect_bluetooth(self) -> str:
+        if self._bluetooth:
+            return self._bluetooth.connect()
+        return "No Bluetooth support"
+
+# Example usage
+keyboard = Keyboard()
 mouse = Mouse()
-computer_using_keyboard = Computer(keyboard).input()
-print("============================================================")
-computer_using_mouse = Computer(mouse).input()
+ssd = SSD()
+cpu = CPU()
+monitor = Monitor()
+wifi = WiFi()
+bluetooth = Bluetooth()
 
-# computer: Computer = Computer()
+computer = Computer(keyboard, ssd, cpu, monitor, wifi, bluetooth)
+print(computer.perform_input())      # Outputs: Keyboard input
+print(computer.perform_storage())    # Outputs: SSD storing data and SSD retrieving data
+print(computer.perform_processing()) # Outputs: CPU processing data
+print(computer.perform_output())     # Outputs: Monitor output
+print(computer.connect_wifi())       # Outputs: WiFi connected
+print(computer.connect_bluetooth())  # Outputs: Bluetooth connected
 
-# computer.input_device
-# computer.input_data_from_keyboard()
-# computer.store_data_to_internal_memory()
-# computer.retrieve_data_to_internal_memory()
-# computer.process_data_using_cpu()
-# computer.output_data_on_builtin_screen()
-# computer.connect_to_wifi()
-# computer.connect_to_bluetooth()
+# Change the input device
+computer.set_input_device(mouse)
+print(computer.perform_input())      # Outputs: Mouse input
 
-
-# def store_data_to_internal_memory(self):
-    #     print("storing data to internal memory...")
-
-    # def retrieve_data_to_internal_memory(self):
-    #     print("Retrieving data to internal memory...")
-
-    # def process_data_using_cpu(self):
-    #     print("Processing data using CPU")
-
-    # def output_data_on_builtin_screen(self):
-    #     print("Outputting data on builtin screen")
-
-    # def connect_to_wifi(self):
-    #     print("Connecting to wifi...")
-
-    # def connect_to_bluetooth(self):
-    #     print("Connecting to bluetooth...")
+# Create a computer without WiFi and Bluetooth support
+basic_computer = Computer(keyboard, ssd, cpu, monitor)
+print(basic_computer.connect_wifi())  # Outputs: No WiFi support
+print(basic_computer.connect_bluetooth()) # Outputs: No Bluetooth support
