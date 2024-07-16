@@ -7,6 +7,7 @@ import OutputDevice, {Monitor, Printer} from "./outputDevices";
 
 
 // WiFi & Bluetooth Devices
+
 interface WiFi {
     connectToWifi();
     disconnectFromWiFi();
