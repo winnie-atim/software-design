@@ -6,12 +6,12 @@
 
 Sprint_00:
   # Develop code for a computer system with the following features.
-    - Should be able to input data from a keyBoard.
-    - Should be able to store & retrieve data to & from internal memory.
-    - Should be able to process data using the default processing unit.
-    - Should be able to output data on a built-in screen.
-    - Should be able to connect to WI-FI.
-    - Should be able to connect bluetooth device.
+  - Should be able to input data from a keyBoard.
+  - Should be able to store & retrieve data to & from internal memory.
+  - Should be able to process data using the default processing unit.
+  - Should be able to output data on a built-in screen.
+  - Should be able to connect to WI-FI.
+  - Should be able to connect bluetooth device.
 
 Sprint_01:
   # Sprint Goal: Implementing the SOLID Design Principles
@@ -160,3 +160,13 @@ Sprint_06:
 
   # Requirements:
     - 
+
+Hints:
+  - Scenario-Oriented Principles:
+    - Single Responsbility Principle
+    - Open-Closed Principle
+    - Lisikov Substitution Principle
+
+  - Solution-Oriented Principles:
+    - Interface Segregation Principle
+    - Dependancy Inversion Principle
