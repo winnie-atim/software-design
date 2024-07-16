@@ -156,6 +156,8 @@ monitor = Monitor()
 
 
 computer = Computer(keyboard, ssd, cpu, monitor)
+print("=============COMPUTER=========")
+
 print(computer.perform_input())      # Outputs: Keyboard input
 print(computer.perform_storage())    # Outputs: SSD storing data and SSD retrieving data
 print(computer.perform_processing()) # Outputs: CPU processing data
@@ -169,6 +171,7 @@ print(computer.perform_input())      # Outputs: Mouse input
 
 
 Laptop1=Laptop(keyboard, ssd, cpu, monitor)
+print("=============LAPTOP=========")
 print(Laptop1.connectToBluetooth())  # Outputs: Bluetooth connected
 print(Laptop1.disconnectFromBluetooth())  # Outputs: Bluetooth disconnected
 print(Laptop1.connectToWifi())  # Outputs: WiFi connected
