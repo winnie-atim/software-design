@@ -3,20 +3,12 @@ import InputDevice, {Mouse, Keyboard} from "./inputDevices";
 import StorageDevice, {SSD, HDD} from "./storageDevices";
 import ProcessingDevice, {CPU, GPU} from "./processingDevices";
 import OutputDevice, {Monitor, Printer} from "./outputDevices";
-
+import { WiFi } from "./wifi";
+import { Bluetooth } from "./bluetooth";
 
 
 // WiFi & Bluetooth Devices
 
-interface WiFi {
-    connectToWifi();
-    disconnectFromWiFi();
-}
-
-interface Bluetooth {
-    connectToBluetooth()
-    disconnectFromBluetooth()
-}
 
 
 // The Computer Interface
@@ -31,8 +23,7 @@ class Computer {
         storageDevice: StorageDevice,
         processingDevice: ProcessingDevice,
         outputDevice: OutputDevice,
-        wifi?: WiFi,
-        bluetooth?: Bluetooth
+        
     ) {
         this.inputDevice = inputDevice;
         this.storageDevice = storageDevice;
@@ -92,7 +83,6 @@ class Laptop extends Computer implements WiFi, Bluetooth{
     disconnectFromBluetooth(): string {
         return "Bluetooth disconnected";
     }
-
 }
 
 

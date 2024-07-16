@@ -20,9 +20,10 @@ var inputDevices_1 = require("./inputDevices");
 var storageDevices_1 = require("./storageDevices");
 var processingDevices_1 = require("./processingDevices");
 var outputDevices_1 = require("./outputDevices");
+// WiFi & Bluetooth Devices
 // The Computer Interface
 var Computer = /** @class */ (function () {
-    function Computer(inputDevice, storageDevice, processingDevice, outputDevice, wifi, bluetooth) {
+    function Computer(inputDevice, storageDevice, processingDevice, outputDevice) {
         this.inputDevice = inputDevice;
         this.storageDevice = storageDevice;
         this.processingDevice = processingDevice;
