@@ -9,8 +9,7 @@ class SimpleCoffee implements Coffee {
     cost(): number {
         return 5.0;
     }
-
-    description(): string {
+        description(): string {
         return "Simple Coffee";
     }
 }
